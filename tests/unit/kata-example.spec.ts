@@ -1,34 +1,41 @@
-import {FizzBuzz} from "../../src/fizz.buzz";
+import {leapYear} from "../../src/leap.year";
 
-let fizzBuzz: FizzBuzz;
-describe('Fizz buzz game', () => {
-    beforeEach(() => {
-        fizzBuzz = new FizzBuzz();
-    })
-
-    it('should return 1 as string for 1', () => {
-        let result = fizzBuzz.result(1);
-
-        expect(result).toBe("1")
+describe('Leap year function should return true for a leap year', () => {
+    it.each([2024, 2028, 2032])
+    ('Should return true for years divisible by FOUR', (year: number) => {
+        let result = leapYear(year)
+        expect(result).toBeTruthy();
     });
 
-    it.each([3, 6, 9])
-    ('should return Fizz as string for multiples of 3', (multipleOfThree: number) => {
-        let result = fizzBuzz.result(multipleOfThree);
-
-        expect(result).toBe("Fizz")
+    it.each([2023, 2027, 2029])
+    ('Should return false for years not divisible by 4', (year: number) => {
+        let result = leapYear(year)
+        expect(result).toBeFalsy();
     });
 
-    it.each([5, 10, 20])
-    ('should return Buzz as string for multiples of 5', (multipleOfFive: number) => {
-        let result = fizzBuzz.result(multipleOfFive);
-
-        expect(result).toBe("Buzz")
+    it.each([100, 200, 300])
+    ('Should return false for years divisible by ONE_HUNDRED', (year) => {
+        let result = leapYear(year)
+        expect(result).toBeFalsy();
     });
 
-    it('should return FizzBuzz as string for 15', () => {
-        let result = fizzBuzz.result(15);
+    it.each([400, 800, 2000])
+    ('Should return true for years divisible by FOUR_HUNDRED', (year) => {
+        // Given a function called leapYear
+        obj = new leapYear();
+        leapYear.set(ddd)
+        leapYear.set2(214324)
 
-        expect(result).toBe("FizzBuzz")
+        // when I call it with...
+        let result = leapYear.isLeap(year)
+
+        // Then...
+        expect(result).toBeTruthy();
     });
-})
+
+    it.each([400, 800, 2000])
+    ('Should return false for years divisible by FOUR_HUNDRED', (year) => {
+        let result = leapYear(year)
+        expect(result).toBeFalsy();
+    });
+});
